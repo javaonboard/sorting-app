@@ -1,5 +1,6 @@
 package com.utd.se3345.project1.sortingapp.controller;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,5 +26,8 @@ public class FrontController {
 		return new ArrayList<SortResponse>();
 		
 	}
+=======
+public class FrontController {
+>>>>>>> 6caf08354e10a9ec69fefec494a86615ffe1ed73
 
 }
