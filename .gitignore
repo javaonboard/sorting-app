@@ -1,31 +1,46 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**
-!**/src/test/**
+./back-end/target/+
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+# compiled output
+./front-end/dist
+./front-end/dist-server
+./front-end/tmp
+./front-end/out-tsc
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
+# dependencies
+./front-end/node_modules
 
-### VS Code ###
-.vscode/
+# IDEs and editors
+./front-end/.idea
+./front-end/.project
+./front-end/.classpath
+./front-end/.c9/
+./front-end/*.launch
+./front-end/.settings/
+./front-end/*.sublime-workspace
+
+# IDE - VSCode
+./front-end/.vscode/*
+./front-end/!.vscode/settings.json
+./front-end/!.vscode/tasks.json
+./front-end/!.vscode/launch.json
+./front-end/!.vscode/extensions.json
+
+# misc
+./front-end/.sass-cache
+./front-end/connect.lock
+./front-end/coverage
+./front-end/libpeerconnection.log
+./front-end/npm-debug.log
+./front-end/yarn-error.log
+./front-end/testem.log
+./front-end/typings
+
+# e2e
+./front-end/e2e/*.js
+./front-end/e2e/*.map
+
+# System Files
+./front-end/.DS_Store
+./front-end/Thumbs.db
