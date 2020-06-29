@@ -1,61 +1,61 @@
 package com.utd.se3345.project1.sortingapp.algorithms;
 
-public class QuickSort implements Sort 
-{
+public class QuickSort implements Sort {
+	private int comparisons;
+	private int movements;
+
 	@Override
 	public void sort(int[] arr) {
-		sortHelper(arr,0,arr.length);
+		sortHelper(arr, 0, arr.length - 1);
+
+	}
+
+	public int partition(int arr[], int first, int last) {
+		int pivot = arr[first];
+		int low = first +1;
+		int high = last;
+        
+		while(high > low) {
+			
+			while(low <= high && arr[low] <= pivot) {low++;comparisons++;}
+			while(low <= high && arr[high]>pivot) {high--;comparisons++;}
+		    if(high > low) {
+		    	int temp = arr[high];
+		    	arr[high] = arr [low];
+		    	arr[low] = temp;
+		    	movements+=2;
+		    }
+		}
 		
-	} 
-	
-	int partition(int arr[], int low, int high) 
-    { 
-        int pivot = arr[high];  
-        int i = (low-1); // index of smaller element 
-        for (int j=low; j<high; j++) 
-        { 
-            // If current element is smaller than the pivot 
-            if (arr[j] < pivot) 
-            { 
-                i++; 
-  
-                // swap arr[i] and arr[j] 
-                int temp = arr[i]; 
-                arr[i] = arr[j]; 
-                arr[j] = temp; 
-            } 
-        } 
-  
-        // swap arr[i+1] and arr[high] (or pivot) 
-        int temp = arr[i+1]; 
-        arr[i+1] = arr[high]; 
-        arr[high] = temp; 
-  
-        return i+1; 
-    } 
-  
-  
-    /* The main function that implements QuickSort() 
-      arr[] --> Array to be sorted, 
-      low  --> Starting index, 
-      high  --> Ending index */
-    void sortHelper(int arr[], int low, int high) 
-    { 
-        if (low < high) 
-        { 
-            /* pi is partitioning index, arr[pi] is  
-              now at right place */
-            int pi = partition(arr, low, high); 
-  
-            // Recursively sort elements before 
-            // partition and after partition 
-            sortHelper(arr, low, pi-1); 
-            sortHelper(arr, pi+1, high); 
-        } 
-    }
+		while(high > first && arr[high] >= pivot) { high--;comparisons++;}
+		if(pivot > arr[high]) {
+			arr[first] = arr[high];
+			arr[high] = pivot;
+			movements+=2;
+			return high;
+		}else return first;
+	}
 
+	/*
+	 * The main function that implements QuickSort() arr[] --> Array to be sorted,
+	 * low --> Starting index, high --> Ending index
+	 */
+	void sortHelper(int[] list, int first, int last) {
+		if(last>first) {
+			int pivotIndex = partition(list, first, last);
+			sortHelper(list,first,pivotIndex-1);
+			sortHelper(list, pivotIndex+1, last);
+		}
+		
+		
+	}
 
+	public int getComparisons() {
+		return comparisons;
+	}
 
-  
+	public int getMovements() {
+		return movements;
+	}
 
 }

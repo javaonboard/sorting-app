@@ -2,66 +2,56 @@ package com.utd.se3345.project1.sortingapp.algorithms;
 
 public class MergeSort implements Sort 
 {
+	
+	private int comparisons;
+	private int movements;
+	
 	@Override
 	public void sort(int[] arr) {
-		sortHelper(arr,0,arr.length);
+		sortHelper(arr);
 	} 
 	
-	void sortHelper(int arr[], int l, int r) 
+	public void sortHelper(int[] arr) 
     { 
-        if (l < r) 
-        {           
-            int m = (l + r) / 2;            
-            sortHelper(arr, l, m); 
-            sortHelper(arr, m + 1, r);             
-            merge(arr, l, m, r); 
-        } 
+       if(arr.length > 1) {
+    	   int [] firstHalf = new int[arr.length /2];
+    	   System.arraycopy(arr, 0, firstHalf, 0, arr.length/2);
+    	   sortHelper(firstHalf);
+    	   
+    	   int secondHalfLength = arr.length - arr.length /2;
+    	   int [] secondHalf = new int[secondHalfLength];
+    	   System.arraycopy(arr,  arr.length/2,  secondHalf, 0, secondHalfLength);
+    	   sortHelper(secondHalf);
+    	   merge(firstHalf, secondHalf, arr);
+       }
     } 
 	
-	public void merge(int arr[], int l, int m, int r) 
+	public void merge(int[] list1, int[] list2, int[] temp) 
     {        
-        int n1 = m - l + 1; 
-        int n2 = r - m; 
-         
-        int L[] = new int[n1]; 
-        int R[] = new int[n2];   
-      
-        for (int i = 0; i < n1; ++i) 
-            L[i] = arr[l + i]; 
-        for (int j = 0; j < n2; ++j) 
-            R[j] = arr[m + 1 + j]; 
+       int current1 = 0;
+       int current2 = 0;
+       int current3 = 0;
        
-      
-        int i = 0, j = 0;        
-        int k = l; 
-        while (i < n1 && j < n2) { 
-            if (L[i] <= R[j]) { 
-                arr[k] = L[i]; 
-                i++; 
-            } 
-            else { 
-                arr[k] = R[j]; 
-                j++; 
-            } 
-            k++; 
-        } 
-  
+       while(current1 < list1.length && current2 < list2.length) {
+    	   comparisons++;
+    	   movements++;
+    	   if (list1[current1]< list2[current2])
+    		   temp[current3++] = list1[current1++];
+    	   else
+    		   temp[current3++] = list2[current2++];
+       }
        
-        while (i < n1) 
-        { 
-            arr[k] = L[i]; 
-            i++; 
-            k++; 
-        } 
-  
-       
-        while (j < n2) 
-        { 
-            arr[k] = R[j]; 
-            j++; 
-            k++; 
-        } 
+       while(current1 < list1.length) {temp[current3++] = list1[current1++];movements++;comparisons++;}
+       while(current2 < list2.length) {temp[current3++] = list2[current2++];movements++;comparisons++;}
     }
+
+	public int getComparisons() {
+		return comparisons;
+	}
+
+	public int getMovements() {
+		return movements;
+	}
 
 
   

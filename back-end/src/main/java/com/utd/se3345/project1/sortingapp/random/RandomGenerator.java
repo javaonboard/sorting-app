@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import org.springframework.stereotype.Component;
+
+
 public class RandomGenerator {
 	
 	private Random ran;

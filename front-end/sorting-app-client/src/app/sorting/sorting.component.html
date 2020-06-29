@@ -1,3 +1,91 @@
-<p>
-  sorting works!
-</p>
+
+<div class="container">
+  <div class="row">{{error}}</div>
+  <div class="row" style="background-color: #1c4267;color:#ffff;padding-left: 10px; padding-top: 5px;">
+
+        <div class="col-2">
+           <label>Sort Types </label>
+        </div>
+        <div class="col-2">
+            <label>Order Types </label>
+        </div>  
+        <div class="col-2">
+            <label>N-Value </label>
+        </div>
+        <div class="col-1">
+            <label>Dupilcate </label>
+        </div>
+        <div class="col-1">
+          <label>CompareAll </label>
+        </div>
+        <div class="col-2" >
+          <label style="padding-left: 30px;"> ACTION </label>
+        </div>
+  </div>
+
+
+
+        <div class="row" style="background-color:#48b0cb;padding: 10px;">
+          <div class="col-2">
+              <select  [(ngModel)]="sortType">
+                <option>Pick an option</option>
+                <option *ngFor="let sort of sortTypes">{{ sort.name }}</option>
+            </select>
+          </div>
+          <div class="col-2">
+            <select  [(ngModel)]="orderType">
+              <option>Pick an option</option>
+              <option *ngFor="let order of orderTypes">{{ order.name }}</option>
+          </select>  
+          </div>
+          <div class="col-2">
+            <input type="text" style="width: 100px;height: 25px;" [(ngModel)]="range" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+          </div>
+
+          <div class="col-1" style="padding-left: 40px;">
+              <input type="checkbox" (change)="onDuplicate()" />
+          </div>
+          <div class="col-1" style="padding-left: 40px;">
+            <input type="checkbox" (change)="onCompare()" />
+          </div>
+          <div class="col-2"> 
+                  <input type="button" 
+                    class="btn btn-success" value= "SUBMIT" (click)="click()"  />
+            </div>
+        </div>
+      
+  </div>
+    
+
+
+
+
+<div class="card my-5" style="background-color:#1c4267">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead" style="background-color:#48b0cb;color: #fff;" >
+        <tr>
+          <th scope="col">Sort Type</th>
+          <th scope="col">Data Type</th>
+          <th scope="col">Array Size</th>
+          <th scope="col">Comparision</th>
+          <th scope="col">Movements</th>
+          <th scope="col">time taken</th>
+          
+        </tr>
+      </thead>
+      <tbody style="color:whitesmoke;">
+        <tr align="center" *ngIf="loading else loaded">loading...<img width="250px" hight="200px" src="../../assets/source.gif" /></tr>
+        <tr *ngFor="let res of responses">
+          
+          <td>{{ res.sortType }}</td>
+          <td>{{ res.orderType }}</td>
+          <td>{{ res.range }}</td>
+          <td>{{ res.comparisons }}</td>
+          <td>{{ res.movements }}</td>
+          <td>{{ res.time }}ms</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

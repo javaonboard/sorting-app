@@ -7,6 +7,6 @@ import com.utd.se3345.project1.sortingapp.util.Order;
 @Service
 public interface RandomService {
 	
-	int[] callForData(Order order, boolean duplicate);
+	int[] callForData(RandomGenerator rand,Order order, boolean duplicate);
 
 }

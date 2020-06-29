@@ -3,18 +3,17 @@ package com.utd.se3345.project1.sortingapp.random;
 import java.util.Arrays;
 import java.util.Collections;
 
+import org.springframework.stereotype.Component;
+
 import com.utd.se3345.project1.sortingapp.util.Order;
 
+@Component
 public class RandomEngine implements RandomService {
 	
-	RandomGenerator rand;
 	
-	public RandomEngine(int length) {
-		rand = new RandomGenerator(length);
-	}
-	
+
 	@Override
-	public int[] callForData(Order type, boolean duplicate) {
+	public int[] callForData(RandomGenerator rand,Order type, boolean duplicate) {
 		int[] result;
 		
 		if(duplicate) result = rand.duplicate();
@@ -48,7 +47,7 @@ public class RandomEngine implements RandomService {
 			
 			Arrays.sort(eighty);
 		    
-			result = Arrays.copyOfRange(eighty, 0, eighty.length);
+			for(int i=0;i<eighty.length;i++)result[i]=eighty[i];
 			
 			
 		}

@@ -1,7 +1,10 @@
 package com.utd.se3345.project1.sortingapp.algorithms;
 
 public class SelectionSort implements Sort {
-
+	
+	private int comparisons;
+	private int movements;
+	
 	@Override
 	public void sort(int[] list) 
 	{
@@ -14,6 +17,7 @@ public class SelectionSort implements Sort {
 		
 			for(int j= i + 1; j < list.length; j++)
 			{
+				comparisons++;
 				if(currentMin> list[j])
 				{
 					currentMin = list[j];
@@ -23,10 +27,22 @@ public class SelectionSort implements Sort {
 			
 			if(currentMinIndex != i)
 			{
+				movements+=2;
 				list[currentMinIndex] = list[i];
 				list[i] = currentMin;
 			}
 		}
 	}
+
+	public int getComparisons() {
+		return comparisons;
+	}
+
+	public int getMovements() {
+		return movements;
+	}
+	
+	
+	
 
 }
