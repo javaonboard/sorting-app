@@ -52,6 +52,7 @@ export class SortingComponent implements OnInit {
     }else{
     this.sortService.getResult(this.sortType, this.range, this.orderType, this.duplicate , this.compareAll).subscribe(data => {
       this.responses = data;
+      this.responses.sort((a,b)=>a.winner.localeCompare(b.winner));
       this.loading = false;
     })
   }

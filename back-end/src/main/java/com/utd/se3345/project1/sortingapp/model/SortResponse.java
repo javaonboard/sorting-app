@@ -5,9 +5,11 @@ public class SortResponse {
 	private int range;
 	private String orderType;
 	private String sortType;
-	private int comparisons;
-	private int movements;
+	private long comparisons;
+	private long movements;
 	private double time;
+	private String winner;
+	int point;
 	
 	public SortResponse() {}
 	
@@ -44,19 +46,28 @@ public class SortResponse {
 		this.sortType = sortType;
 	}
 
-	public int getComparisons() {
+
+	public String getWinner() {
+		return winner;
+	}
+
+	public void setWinner(String winner) {
+		this.winner = winner;
+	}
+
+	public long getComparisons() {
 		return comparisons;
 	}
 
-	public void setComparisons(int comparisons) {
+	public void setComparisons(long comparisons) {
 		this.comparisons = comparisons;
 	}
 
-	public int getMovements() {
+	public long getMovements() {
 		return movements;
 	}
 
-	public void setMovements(int movements) {
+	public void setMovements(long movements) {
 		this.movements = movements;
 	}
 
@@ -67,6 +78,16 @@ public class SortResponse {
 	public void setTime(double time) {
 		this.time = time;
 	}
+
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
+	
+	
 	
 	
 	

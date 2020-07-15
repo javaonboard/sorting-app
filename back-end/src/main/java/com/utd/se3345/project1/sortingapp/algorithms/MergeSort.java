@@ -3,8 +3,8 @@ package com.utd.se3345.project1.sortingapp.algorithms;
 public class MergeSort implements Sort 
 {
 	
-	private int comparisons;
-	private int movements;
+	private long comparisons;
+	private long movements;
 	
 	@Override
 	public void sort(int[] arr) {
@@ -45,11 +45,11 @@ public class MergeSort implements Sort
        while(current2 < list2.length) {temp[current3++] = list2[current2++];movements++;comparisons++;}
     }
 
-	public int getComparisons() {
+	public long getComparisons() {
 		return comparisons;
 	}
 
-	public int getMovements() {
+	public long getMovements() {
 		return movements;
 	}
 

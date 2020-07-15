@@ -20,15 +20,13 @@ public class SortService {
 	@Autowired
 	CordinatorImpl cord;
 	int[] data;
-	
 
-		
 		
 	public List<SortResponse> getResult(SortType sType,int n,Order oType, boolean duplicate,boolean compareAll) {
 		
 	    
 		List<SortResponse> results = new ArrayList<>();
-		
+		Winner win = new Winner();
 		if(compareAll) {
 			SortType[] all = SortType.values();
 			for(SortType s: all) {
@@ -48,6 +46,8 @@ public class SortService {
 	
 		}
 		
+		
+		win.findWinner(results);
 		return results;
 	}
 	
@@ -63,8 +63,6 @@ public class SortService {
 	public SortResponse callSortMethod(SortType sType) {
 		SortResponse sr = new SortResponse();
 		
-
-		
 		SortFactory sf = new SortFactory();
 		
 		Sort sortAlgo = sf.factory(sType);
@@ -72,6 +70,8 @@ public class SortService {
 		Instant start = Instant.now();
 		sortAlgo.sort(data);
 		Instant finish = Instant.now();
+		
+		//for(int i: data)System.out.println(i);
 		
 		long timeElapsed = Duration.between(start, finish).toMillis();
 		

@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Heap {
-	private int movements;
-	private int comparisons;
+	
+	private long movements;
+	private long comparisons;
 	
 	List<Integer> list = new ArrayList<>();
 	
@@ -67,11 +68,12 @@ public class Heap {
 		
 		return removedInt;
 	}
-	public int getMovements() {
+	public long getMovements() {
 		return movements;
 	}
-	public int getComparisons() {
+	public long getComparisons() {
 		return comparisons;
 	}
+
 
 }

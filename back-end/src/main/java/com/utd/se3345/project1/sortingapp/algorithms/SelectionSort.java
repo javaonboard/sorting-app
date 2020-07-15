@@ -2,8 +2,8 @@ package com.utd.se3345.project1.sortingapp.algorithms;
 
 public class SelectionSort implements Sort {
 	
-	private int comparisons;
-	private int movements;
+	private long comparisons;
+	private long movements;
 	
 	@Override
 	public void sort(int[] list) 
@@ -34,11 +34,11 @@ public class SelectionSort implements Sort {
 		}
 	}
 
-	public int getComparisons() {
+	public long getComparisons() {
 		return comparisons;
 	}
 
-	public int getMovements() {
+	public long getMovements() {
 		return movements;
 	}
 	

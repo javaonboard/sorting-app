@@ -5,4 +5,5 @@ export class SortResponse {
     comparisons: string;
     movements: string;
     time: string;
+    winner: string;
 }

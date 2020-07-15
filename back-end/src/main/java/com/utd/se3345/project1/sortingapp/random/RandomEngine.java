@@ -10,7 +10,6 @@ import com.utd.se3345.project1.sortingapp.util.Order;
 @Component
 public class RandomEngine implements RandomService {
 	
-	
 
 	@Override
 	public int[] callForData(RandomGenerator rand,Order type, boolean duplicate) {
@@ -18,7 +17,6 @@ public class RandomEngine implements RandomService {
 		
 		if(duplicate) result = rand.duplicate();
 		else result = rand.noDuplicate();
-		
 		
 		
 		if(type.equals(Order.RANDOM)) {
@@ -48,8 +46,7 @@ public class RandomEngine implements RandomService {
 			Arrays.sort(eighty);
 		    
 			for(int i=0;i<eighty.length;i++)result[i]=eighty[i];
-			
-			
+				
 		}
 		
 		return result;

@@ -42,9 +42,6 @@ public class FrontController {
 		return sortService.getResult(sEnum, Integer.parseInt(params.get("range")), 
 										oEnum, Boolean.valueOf(params.get("duplicate")),Boolean.valueOf(params.get("compareAll")));
 		
-		
-		
-		
 	}
 
 

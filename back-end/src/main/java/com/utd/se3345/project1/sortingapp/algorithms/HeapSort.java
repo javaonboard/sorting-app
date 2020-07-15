@@ -9,17 +9,17 @@ public class HeapSort implements Sort
 	@Override
 	public void sort(int arr[]) 
     { 
-		 heap = new Heap();
+	heap = new Heap();
 		for(int i=0; i<arr.length;i++)heap.add(arr[i]);
 		
 		for(int i=arr.length-1;i>=0;i--)arr[i] = heap.remove();
     }
 
-	public int getMovements() {
+	public long getMovements() {
 		return heap.getMovements();
 	}
 
-	public int getComparisons() {
+	public long getComparisons() {
 		return heap.getComparisons();
 	}  	
     	

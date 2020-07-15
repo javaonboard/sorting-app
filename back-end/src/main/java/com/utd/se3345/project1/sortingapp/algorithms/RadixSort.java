@@ -5,8 +5,8 @@ import java.util.*;
 
 public class RadixSort implements Sort {
 
-	private int comparisons;
-	private int movements;
+	private long comparisons;
+	private long movements;
 
 	@Override
 	public void sort(int[] arr) {
@@ -68,11 +68,11 @@ public class RadixSort implements Sort {
 			countSort(arr, n, exp);
 	}
 
-	public int getComparisons() {
+	public long getComparisons() {
 		return comparisons;
 	}
 
-	public int getMovements() {
+	public long getMovements() {
 		return movements;
 	}
 
